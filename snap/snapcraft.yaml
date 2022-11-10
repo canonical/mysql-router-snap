@@ -1,0 +1,34 @@
+name: mysql-router # you probably want to 'snapcraft register <name>'
+base: core22 # the base snap is the execution environment for this snap
+version: '8.0' # just for humans, typically '1.2+git' or '1.3.2'
+summary: mysql-router in a snap. # 79 char long summary
+description: |
+  MySQL Router is part of InnoDB Cluster, and is lightweight 
+  middleware that provides transparent routing between your 
+  application and back-end MySQL Servers.
+
+grade: stable
+confinement: strict
+
+layout:
+  /usr/lib/mysql-router:
+    symlink: $SNAP/usr/lib/mysql-router
+  /etc/mysqlrouter:
+    symlink: $SNAP_COMMON
+
+apps:
+  mysqlrouter:
+    command: usr/bin/mysqlrouter
+  mysqlrouter-passwd:
+    command: usr/bin/mysqlrouter_passwd
+  mysqlrouter-keyring:
+    command: usr/bin/mysqlrouter_keyring
+  mysqlrouter-plugin-info:
+    command: usr/bin/mysqlrouter_plugin_info
+
+parts:
+  mysql-router-deb:
+    plugin: nil
+    stage-packages:
+      - mysql-router
+

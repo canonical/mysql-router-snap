@@ -1,0 +1,20 @@
+on:
+  workflow_call:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: get short version
+        id: get-short-version
+        run: |
+          echo "SHORT_VERSION=8.0" >> $GITHUB_OUTPUT
+      - uses: snapcore/action-build@v1
+        id: build
+      - uses: snapcore/action-publish@v1
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
+        with:
+          snap: ${{ steps.build.outputs.snap }}
+          release: ${{ steps.get-short-version.outputs.SHORT_VERSION }}/stable
