@@ -1,7 +1,6 @@
-name: scheduled workflow
+name: on push
 on:
-  schedule:
-    - cron:  '0 12 * * 3'
+  push:
 
 jobs:
   publish:
