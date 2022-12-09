@@ -27,3 +27,8 @@ sudo lxd init --auto
 snapcraft pack
 sudo snap install ./mysql-router*.charm --devmode
 ```
+## License
+The Mysql Router Snap is free software, distributed under the Apache
+Software License, version 2.0. See
+[LICENSE](https://github.com/canonical/mysql-router-snap/blob/8.0/stable/LICENSE)
+for more information.
