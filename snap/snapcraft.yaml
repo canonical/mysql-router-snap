@@ -10,6 +10,9 @@ description: |
 grade: stable
 confinement: strict
 
+system-usernames:
+  snap_daemon: shared
+
 layout:
   /usr/lib/mysql-router:
     symlink: $SNAP/usr/lib/mysql-router
@@ -19,6 +22,13 @@ layout:
 apps:
   mysqlrouter:
     command: usr/bin/mysqlrouter
+  mysqlrouter-service:
+    command: start_mysql_router.sh
+    daemon: simple
+    install-mode: disable
+    plugs:
+      - network
+      - network-bind
   mysqlrouter-passwd:
     command: usr/bin/mysqlrouter_passwd
   mysqlrouter-keyring:
@@ -31,4 +41,7 @@ parts:
     plugin: nil
     stage-packages:
       - mysql-router
-
+      - util-linux
+  wrapper:
+    plugin: dump
+    source: snap/local
