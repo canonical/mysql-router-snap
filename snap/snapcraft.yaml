@@ -21,7 +21,7 @@ layout:
 
 apps:
   mysqlrouter:
-    command: usr/bin/mysqlrouter
+    command: start_mysql_router.sh 
   mysqlrouter-service:
     command: start_mysql_router.sh
     daemon: simple
