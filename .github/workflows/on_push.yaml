@@ -2,7 +2,7 @@ name: on push
 on:
   push:
     branches:
-      - 8.0/edge
+      - '[0-9]+.[0-9]+/*'  # (e.g. 8.0/edge)
 
 jobs:
   publish:
