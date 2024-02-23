@@ -1,4 +1,6 @@
 # MySQL Router Snap
+[![.github/workflows/publish.yaml](https://github.com/canonical/mysql-router-snap/actions/workflows/publish.yaml/badge.svg)](https://github.com/canonical/mysql-router-snap/actions/workflows/publish.yaml)
+
 This repository contains the packaging metadata for creating a snap of MySQL Router built from the official Ubuntu repositories.  For more information on snaps, visit [snapcraft.io](https://snapcraft.io/). 
 
 ## Installing the Snap
